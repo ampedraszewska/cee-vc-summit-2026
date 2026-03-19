@@ -36,9 +36,9 @@
     --border:      rgba(255,255,255,0.07);
     --accent:      #faff00;
     --accent-dim:  rgba(250,255,0,0.08);
-    --text:        #ede8f5;
-    --text-muted:  #7a6d90;
-    --text-dim:    #3f3455;
+    --text:        #ffffff;
+    --text-muted:  #c0b4d8;
+    --text-dim:    #6b5f80;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,6 +70,7 @@
   }
   .header-left  { display: flex; align-items: center; gap: 14px; }
   .header-right { display: flex; align-items: center; gap: 24px; }
+  .header-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.15); }
 
   .event-tag {
     font-size: 10px;
@@ -91,27 +92,24 @@
   /* Curated by Vastpoint */
   .curated-by {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 3px;
+    align-items: center;
+    gap: 7px;
   }
   .curated-label {
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--text-dim);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    line-height: 1;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    white-space: nowrap;
   }
   .vp-wordmark {
-    display: block;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.85;
     transition: opacity 0.15s;
-    line-height: 1;
   }
   .vp-wordmark:hover { opacity: 1; }
-  .vp-wordmark svg { height: 18px; width: auto; display: block; }
+  .vp-wordmark svg { height: 16px; width: auto; display: block; }
 
   .count-badge { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
 
@@ -304,16 +302,17 @@
     <div class="header-left">
       <span class="event-tag">CEE VC Summit 2026</span>
       <span class="title">Investor Directory</span>
-    </div>
-    <div class="header-right">
+      <div class="header-sep"></div>
       <div class="curated-by">
-        <span class="curated-label">Curated by</span>
+        <span class="curated-label">curated by</span>
         <a href="https://vastpoint.vc" target="_blank" rel="noopener" class="vp-wordmark">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32">
             <text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="-0.5">vastpoint</text>
           </svg>
         </a>
       </div>
+    </div>
+    <div class="header-right">
       <span class="count-badge"><span id="visibleCount">0</span> funds · Warsaw, 24–25 March 2026</span>
     </div>
   </div>
