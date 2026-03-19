@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEE VC Summit 2026 — Investor Directory</title>
+
+<!-- SEO -->
+<meta name="description" content="Directory of European VC funds attending CEE VC Summit 2026, Warsaw, 24–25 March. Curated by Vastpoint.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="CEE VC Summit 2026 — Investor Directory">
+<meta property="og:description" content="Directory of European VC funds attending CEE VC Summit 2026, Warsaw, 24–25 March. Curated by Vastpoint.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://vastpoint.vc/favicon.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CEE VC Summit 2026 — Investor Directory">
+<meta name="twitter:description" content="Directory of European VC funds attending CEE VC Summit 2026, Warsaw, 24–25 March. Curated by Vastpoint.">
+<meta name="twitter:image" content="https://vastpoint.vc/favicon.png">
+
+<!-- Favicon -->
+<link rel="icon" href="https://vastpoint.vc/favicon.png" type="image/png">
+
+<!-- Fonts: Space Grotesk — Vastpoint brand font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ── DESIGN TOKENS ── */
+  :root {
+    --bg:          #090116;
+    --bg-raised:   #0e0220;
+    --border:      rgba(255,255,255,0.07);
+    --accent:      #faff00;
+    --accent-dim:  rgba(250,255,0,0.08);
+    --text:        #ede8f5;
+    --text-muted:  #7a6d90;
+    --text-dim:    #3f3455;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 16px;
+  }
+  .header-left  { display: flex; align-items: center; gap: 14px; }
+  .header-right { display: flex; align-items: center; gap: 24px; }
+
+  .event-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: #090116;
+    background: var(--accent);
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* Curated by Vastpoint */
+  .curated-by {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+  .curated-label {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .vp-wordmark {
+    display: block;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+    line-height: 1;
+  }
+  .vp-wordmark:hover { opacity: 1; }
+  .vp-wordmark svg { height: 18px; width: auto; display: block; }
+
+  .count-badge { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    background: var(--bg-raised);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 32px;
+    position: sticky;
+    top: 64px;
+    z-index: 99;
+  }
+  .toolbar-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .search-wrap { position: relative; flex: 0 0 260px; }
+  .search-wrap svg {
+    position: absolute; left: 10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    pointer-events: none;
+  }
+  .search {
+    width: 100%;
+    padding: 7px 10px 7px 32px;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search::placeholder { color: var(--text-dim); }
+  .search:focus { border-color: var(--accent); background: rgba(255,255,255,0.06); }
+
+  .filter-group { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+  .filter-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 2px;
+  }
+  .filter-btn {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .filter-btn:hover {
+    border-color: rgba(250,255,0,0.35);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    color: #090116;
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+  .divider { width: 1px; height: 20px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+  .clear-btn {
+    font-size: 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: none;
+    background: none;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .clear-btn:hover { color: var(--text-muted); background: rgba(255,255,255,0.04); }
+
+  /* ── TABLE ── */
+  .table-wrap { max-width: 1440px; margin: 24px auto; padding: 0 32px 48px; }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  }
+  thead th {
+    background: rgba(255,255,255,0.025);
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    user-select: none;
+  }
+  thead th.sortable { cursor: pointer; }
+  thead th.sortable:hover { color: var(--accent); background: var(--accent-dim); }
+  thead th.sorted-asc  .sort-icon::after { content: '↑'; }
+  thead th.sorted-desc .sort-icon::after { content: '↓'; }
+  .sort-icon { display: inline-block; color: var(--accent); margin-left: 4px; font-size: 10px; }
+  .sort-icon::after { content: '↕'; color: var(--text-dim); }
+  tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background .1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(250,255,0,0.02); }
+  tbody td { padding: 12px 16px; vertical-align: top; }
+  .hidden { display: none; }
+
+  /* ── FUND CELL ── */
+  .cell-fund { display: flex; align-items: flex-start; gap: 10px; min-width: 180px; }
+  .fund-avatar {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: white;
+    flex-shrink: 0; margin-top: 1px;
+    opacity: 0.85;
+  }
+  .fund-name { font-weight: 600; color: var(--text); font-size: 13px; line-height: 1.35; }
+  .fund-link { color: var(--text); text-decoration: none; font-weight: 600; }
+  .fund-link:hover { color: var(--accent); }
+
+  /* ── FUND SIZE ── */
+  .cell-size { font-size: 12.5px; font-weight: 600; color: var(--accent); white-space: nowrap; padding-top: 3px; }
+  .cell-size.no-size { color: var(--text-dim); font-weight: 400; font-size: 12px; }
+
+  /* ── REPS ── */
+  .cell-reps { min-width: 200px; display: flex; flex-direction: column; gap: 0; }
+  .rep-entry { padding: 3px 0; }
+  .rep-entry + .rep-entry { border-top: 1px dashed rgba(255,255,255,0.06); margin-top: 5px; padding-top: 5px; }
+  .rep-name  { font-weight: 500; color: var(--text); font-size: 13px; line-height: 1.3; }
+  .rep-title { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+  /* ── GEO / FOCUS ── */
+  .cell-geo   { font-size: 11.5px; color: var(--text-muted); }
+  .cell-focus { font-size: 11.5px; color: var(--text-muted); max-width: 200px; }
+
+  /* ── STAGE TAGS ── */
+  .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag { font-size: 10.5px; font-weight: 500; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+  .tag-seed    { background: rgba(20,175,125,0.15); color: #3dcda0; border: 1px solid rgba(20,175,125,0.2); }
+  .tag-preseed { background: rgba(20,175,125,0.08); color: #3dcda0; border: 1px solid rgba(20,175,125,0.12); }
+  .tag-a       { background: rgba(59,130,246,0.12); color: #60a5fa; border: 1px solid rgba(59,130,246,0.18); }
+  .tag-b       { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.18); }
+  .tag-growth  { background: rgba(236,72,153,0.10); color: #f472b6; border: 1px solid rgba(236,72,153,0.15); }
+  .tag-fof     { background: rgba(250,255,0,0.10); color: var(--accent); border: 1px solid rgba(250,255,0,0.18); }
+  .tag-impact  { background: rgba(52,211,153,0.10); color: #34d399; border: 1px solid rgba(52,211,153,0.15); }
+
+  /* ── CONFIRMED BADGE ── */
+  .badge-confirmed { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px; white-space:nowrap; }
+  .badge-yes { background: rgba(250,255,0,0.12); color: var(--accent); border: 1px solid rgba(250,255,0,0.2); }
+  .badge-no  { background: rgba(255,255,255,0.04); color: var(--text-dim); }
+
+  /* ── EMPTY STATE ── */
+  .no-results { text-align: center; padding: 60px; color: var(--text-dim); font-size: 14px; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .page-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .page-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="event-tag">CEE VC Summit 2026</span>
+      <span class="title">Investor Directory</span>
+    </div>
+    <div class="header-right">
+      <div class="curated-by">
+        <span class="curated-label">Curated by</span>
+        <a href="https://vastpoint.vc" target="_blank" rel="noopener" class="vp-wordmark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32">
+            <text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="-0.5">vastpoint</text>
+          </svg>
+        </a>
+      </div>
+      <span class="count-badge"><span id="visibleCount">0</span> funds · Warsaw, 24–25 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="search-wrap">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="search" type="text" id="searchInput" placeholder="Search fund, person or focus…" oninput="applyFilters()">
+    </div>
+    <div class="divider"></div>
+    <div class="filter-group">
+      <span class="filter-label">Stage</span>
+      <button class="filter-btn" data-filter="stage" data-value="Pre-seed" onclick="toggleFilter(this)">Pre-seed</button>
+      <button class="filter-btn" data-filter="stage" data-value="Seed" onclick="toggleFilter(this)">Seed</button>
+      <button class="filter-btn" data-filter="stage" data-value="Series A" onclick="toggleFilter(this)">Series A</button>
+      <button class="filter-btn" data-filter="stage" data-value="Series B" onclick="toggleFilter(this)">Series B</button>
+      <button class="filter-btn" data-filter="stage" data-value="Growth" onclick="toggleFilter(this)">Growth</button>
+    </div>
+    <div class="divider"></div>
+    <div class="filter-group">
+      <span class="filter-label">Region</span>
+      <button class="filter-btn" data-filter="geo" data-value="Poland" onclick="toggleFilter(this)">🇵🇱 Poland</button>
+      <button class="filter-btn" data-filter="geo" data-value="Baltics" onclick="toggleFilter(this)">🇪🇪 Baltics</button>
+      <button class="filter-btn" data-filter="geo" data-value="CEE" onclick="toggleFilter(this)">CEE</button>
+      <button class="filter-btn" data-filter="geo" data-value="Western Europe" onclick="toggleFilter(this)">Western Europe</button>
+      <button class="filter-btn" data-filter="geo" data-value="Global" onclick="toggleFilter(this)">🌍 Global</button>
+    </div>
+    <div class="divider"></div>
+    <div class="filter-group">
+      <span class="filter-label">Status</span>
+      <button class="filter-btn" data-filter="confirmed" data-value="yes" onclick="toggleFilter(this)">✓ Confirmed 2026</button>
+    </div>
+    <div class="divider"></div>
+    <button class="clear-btn" onclick="clearFilters()">✕ Clear</button>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table class="table" id="mainTable">
+    <thead>
+      <tr>
+        <th class="sortable" onclick="sortBy('name')" id="th-name">Fund <span class="sort-icon" id="si-name"></span></th>
+        <th class="sortable" onclick="sortBy('size')" id="th-size">Fund Size <span class="sort-icon" id="si-size"></span></th>
+        <th>Representatives</th>
+        <th>Stage</th>
+        <th>Focus</th>
+        <th>Geography</th>
+        <th>Confirmed 2026?</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+  <div class="no-results hidden" id="noResults">No funds match your search.</div>
+</div>
+
+<div class="page-footer">
+  Data sourced from <strong>CEE VC Summit 2026</strong> by Vestbee &nbsp;·&nbsp; Curated by <a href="https://vastpoint.vc" target="_blank">Vastpoint</a> &nbsp;·&nbsp; Updated March 2026
+</div>
+
+<script>
+// One entry per fund; reps is an array of { name, title }
+const funds = [
+  { fund:"1991 Ventures", size:"$30M+", sizeN:30, reps:[{name:"Denis Gursky",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, B2B", geo:"Ukraine / CEE", geoTags:["CEE"], website:"https://www.1991.vc",color:"#1d4ed8",confirmed2026:true },
+  { fund:"33N Ventures", size:"€50M", sizeN:50, reps:[{name:"Margarida Correia",title:"Principal"}], stages:["Seed","Series A"], focus:"Tech, AI, B2B", geo:"Southern Europe", geoTags:["Western Europe"], website:"https://www.33n.vc",color:"#0891b2",confirmed2026:false },
+  { fund:"3TS Capital Partners", size:"€180M+", sizeN:180, reps:[{name:"Katarzyna Pac-Malesa",title:"Investment Director"}], stages:["Series A","Series B","Growth"], focus:"Digital Services, SaaS, Fintech", geo:"CEE", geoTags:["CEE"], website:"https://3tscapital.com",color:"#dc2626",confirmed2026:true },
+  { fund:"500 Global", size:"$2.7B", sizeN:2700, reps:[{name:"Pedro Santos Vieira",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Diversified Tech, Global Platforms", geo:"Global", geoTags:["CEE","Global"], website:"https://500.co",color:"#ea580c",confirmed2026:true },
+  { fund:"AlphaQ Venture Capital", size:"$200M+", sizeN:200, reps:[{name:"Marcus Börner",title:"Founding Partner"}], stages:["Seed","Series A","Series B"], focus:"Fund of Funds — European VC", geo:"Europe", geoTags:["CEE","Western Europe","Global"], website:"https://www.aqvc.com",color:"#6b7280",confirmed2026:false },
+  { fund:"Antler", size:"$800M+", sizeN:800, reps:[{name:"Tobias Bengtsdahl",title:"Partner"}], stages:["Pre-seed"], focus:"Pre-formation, AI, B2B, Deep Tech", geo:"Global (65 cities)", geoTags:["Poland","CEE","Global"], website:"https://www.antler.co",color:"#111",confirmed2026:true },
+  { fund:"Apeiron Ventures", size:"€25M", sizeN:25, reps:[{name:"Nikos Antoniou",title:"Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B, Digital", geo:"Europe / CEE", geoTags:["CEE","Western Europe"], website:"https://apeiron.vc",color:"#7c3aed",confirmed2026:false },
+  { fund:"Balnord", size:"€70M", sizeN:70, reps:[{name:"Marcin P. Kowalik",title:"General Partner"}], stages:["Seed","Series A"], focus:"B2B, Tech, SaaS", geo:"Poland / Nordic", geoTags:["Poland","CEE","Western Europe"], website:"https://www.balnord.vc",color:"#0369a1",confirmed2026:true },
+  { fund:"Bek Ventures", size:"€80M+", sizeN:80, reps:[{name:"Oguzhan Ozer",title:"Partner"},{name:"Mehmet Atici",title:"Managing Partner"}], stages:["Seed","Series A"], focus:"B2B, Fintech, Tech", geo:"Central Asia / CEE", geoTags:["CEE","Global"], website:"https://www.bekventures.com",color:"#0891b2",confirmed2026:true },
+  { fund:"Betacluster Ventures", size:"€19M", sizeN:19, reps:[{name:"Gabriela Brodzinska Drozd",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, B2B", geo:"Poland / CEE", geoTags:["Poland","CEE"], website:"https://betacluster.vc",color:"#ea580c",confirmed2026:true },
+  { fund:"Brightcap Ventures", size:"€70M", sizeN:70, reps:[{name:"Elina Halatcheva",title:"Managing Partner"}], stages:["Seed","Series A"], focus:"Tech, Digital, AI", geo:"Bulgaria / SEE", geoTags:["CEE"], website:"https://brightcap.vc",color:"#0891b2",confirmed2026:true },
+  { fund:"Calm/Storm Ventures", size:"€50M", sizeN:50, reps:[{name:"Johannes Blaschke",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B, SaaS, AI", geo:"Europe / CEE", geoTags:["CEE","Western Europe"], website:"https://www.calmstorm.vc",color:"#6b7280",confirmed2026:true },
+  { fund:"Cipio Partners", size:"€200M+", sizeN:200, reps:[{name:"Roland Dennert",title:"Managing Partner"}], stages:["Growth","Series B"], focus:"Growth & Secondaries — European Tech", geo:"Europe", geoTags:["Western Europe","CEE"], website:"https://www.cipiopartners.com",color:"#6b7280",confirmed2026:true },
+  { fund:"Cogito Capital", size:"€125M", sizeN:125, reps:[{name:"Sylwester Janik",title:"General Partner"}], stages:["Series A","Series B"], focus:"Enterprise SaaS, Fintech, Healthtech", geo:"Poland / CEE", geoTags:["Poland","CEE","Global"], website:"https://cogitocap.com",color:"#0369a1",confirmed2026:true },
+  { fund:"Creandum", size:"€800M+", sizeN:800, reps:[{name:"Jakob Stein",title:"Vice President"},{name:"Staffan Helgesson",title:"General Partner"}], stages:["Seed","Series A","Series B"], focus:"Consumer, SaaS, Fintech", geo:"Nordics / Europe", geoTags:["Western Europe","Global"], website:"https://creandum.com",color:"#059669",confirmed2026:true },
+  { fund:"Credo Ventures", size:"€100M+", sizeN:100, reps:[{name:"Maciej Gnutek",title:"General Partner"},{name:"Jan Habermann",title:"General Partner"}], stages:["Seed","Series A"], focus:"B2B SaaS, Deep Tech", geo:"Czech / Slovak / CEE", geoTags:["CEE"], website:"https://www.credoventures.com",color:"#0f766e",confirmed2026:true },
+  { fund:"Daphni", size:"€200M", sizeN:200, reps:[{name:"Briac Lescure",title:"Venture Partner"}], stages:["Seed","Series A","Series B"], focus:"B2B, AI, Digital", geo:"France / Europe", geoTags:["Western Europe"], website:"https://www.daphni.com",color:"#7c3aed",confirmed2026:false },
+  { fund:"Day1 Capital", size:"€45M", sizeN:45, reps:[{name:"Csaba Kakosy",title:"Managing Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, B2B", geo:"Hungary / CEE", geoTags:["CEE"], website:"https://www.dayonecapital.com",color:"#0891b2",confirmed2026:false },
+  { fund:"Diaspora Ventures", size:"$3M", sizeN:3, reps:[{name:"Marvin Liao",title:"Partner"}], stages:["Seed","Series A"], focus:"Consumer, B2B, Tech", geo:"Global", geoTags:["Global"], website:"https://www.diaspora.vc",color:"#6b7280",confirmed2026:false },
+  { fund:"Diffusion Capital Partners", size:"€37M", sizeN:37, reps:[{name:"Firat Özpinar",title:"Partner"}], stages:["Seed","Series A"], focus:"Fintech, B2B, SaaS", geo:"Turkey / CEE", geoTags:["CEE","Global"], website:"https://www.dcp.vc",color:"#0891b2",confirmed2026:false },
+  { fund:"Early Game Ventures", size:"€50M+", sizeN:50, reps:[{name:"Cristian Munteanu",title:"Managing Partner"},{name:"Dan Calugareanu",title:"Partner"}], stages:["Seed","Series A"], focus:"Tech, SaaS, B2B", geo:"Romania / CEE", geoTags:["CEE"], website:"https://earlygame.vc",color:"#b91c1c",confirmed2026:true },
+  { fund:"Earlybird", size:"€1B+", sizeN:1000, reps:[{name:"Dan Lupu",title:"Venture Partner"}], stages:["Seed","Series A","Series B"], focus:"Digital, Deep Tech, AI", geo:"Europe", geoTags:["CEE","Western Europe"], website:"https://earlybird.com",color:"#7c3aed",confirmed2026:true },
+  { fund:"EBRD Venture Capital", size:"€1B+", sizeN:1000, reps:[{name:"Ervin Luga",title:"Head of VC Investments"}], stages:["Seed","Series A","Series B"], focus:"Tech, Impact, Transition economies", geo:"CEE / MENA / CIS", geoTags:["CEE","Global"], website:"https://www.ebrdvcip.com",color:"#1d4ed8",confirmed2026:false },
+  { fund:"EIF", size:"€45B+", sizeN:45000, reps:[{name:"Michal Kosina",title:"Senior Mandate Manager"}], stages:["Seed","Series A","Series B","Growth"], focus:"LP / Institutional — European VC", geo:"Europe", geoTags:["CEE","Western Europe"], website:"https://www.eif.org",color:"#1d4ed8",confirmed2026:true },
+  { fund:"Elevator Ventures", size:"€50M+", sizeN:50, reps:[{name:"Maximilian Schausberger",title:"Managing Director"}], stages:["Pre-seed","Seed","Series A"], focus:"Fintech, Digital Finance (Raiffeisen CVC)", geo:"Austria / CEE", geoTags:["CEE","Western Europe"], website:"https://www.elevator-ventures.com",color:"#dc2626",confirmed2026:true },
+  { fund:"Eleven Ventures", size:"€50M+", sizeN:50, reps:[{name:"Valeri Petrov",title:"Partner"},{name:"Daniel Tomov",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, Digital", geo:"Balkans / SEE", geoTags:["CEE"], website:"https://www.11.vc",color:"#b45309",confirmed2026:true },
+  { fund:"EQT Partners", size:"€200B+ (AUM)", sizeN:200000, reps:[{name:"Povilas Kucinskas",title:"Vice President"}], stages:["Growth","Series B"], focus:"Tech, Deep Tech, Growth PE", geo:"Sweden / Global", geoTags:["Western Europe","Global"], website:"https://eqtventures.com",color:"#1e40af",confirmed2026:false },
+  { fund:"Eurazeo", size:"€10B+", sizeN:10000, reps:[{name:"Alice Besomi",title:"Managing Director"},{name:"Karolina Wojtas",title:"Venture Partner"}], stages:["Series A","Series B","Growth"], focus:"Venture, Smart City, Digital", geo:"France / Europe", geoTags:["Western Europe","Global"], website:"https://www.eurazeo.com/en",color:"#7c3aed",confirmed2026:false },
+  { fund:"ffVC", size:"€60M+", sizeN:60, reps:[{name:"Maciej Skarul",title:"General Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B SaaS, AI", geo:"Poland / USA", geoTags:["Poland","CEE","Global"], website:"https://ffvc.com",color:"#0f766e",confirmed2026:true },
+  { fund:"Finch Capital", size:"€250M+", sizeN:250, reps:[{name:"Eugenie Colonna d'Istria",title:"Investment Manager"}], stages:["Seed","Series A","Series B"], focus:"Fintech, AI, Insurtech", geo:"Netherlands / Europe", geoTags:["Western Europe","CEE"], website:"https://finchcapital.com",color:"#1d4ed8",confirmed2026:true },
+  { fund:"FIRSTPICK", size:"€30M+", sizeN:30, reps:[{name:"Dmitrij Sosunov",title:"General Partner"},{name:"Jone Vaituleviciute",title:"Managing Partner"}], stages:["Pre-seed","Seed"], focus:"B2B, SaaS, Deep Tech", geo:"Lithuania / Baltics", geoTags:["Baltics","CEE"], website:"https://firstpick.vc",color:"#7c3aed",confirmed2026:false },
+  { fund:"Flashpoint VC", size:"€100M+", sizeN:100, reps:[{name:"Marton Medveczky",title:"Associate Partner"}], stages:["Seed","Series A"], focus:"B2B, AI, Fintech, Deep Tech", geo:"CEE / Israel", geoTags:["CEE","Global"], website:"https://flashpointvc.com",color:"#ea580c",confirmed2026:true },
+  { fund:"Flyer One Ventures", size:"€40M+", sizeN:40, reps:[{name:"Elena Mazhuha",title:"Partner"},{name:"Oleksii Yermolenko",title:"Partner"}], stages:["Pre-seed","Seed","Series A"], focus:"Tech, Fintech, AI", geo:"Ukraine / CEE", geoTags:["CEE"], website:"https://www.flyerone.vc",color:"#2563eb",confirmed2026:true },
+  { fund:"Future Energy Ventures", size:"€100M+", sizeN:100, reps:[{name:"Jan Lozek",title:"Managing Director"}], stages:["Seed","Series A","Series B"], focus:"Energy, Climate, Cleantech (E.ON CVC)", geo:"Germany / Europe", geoTags:["Western Europe","CEE"], website:"https://fev.vc",color:"#059669",confirmed2026:true },
+  { fund:"General Atlantic", size:"$100B+ (AUM)", sizeN:100000, reps:[{name:"Marcin Wolf",title:"Vice President"}], stages:["Growth"], focus:"Growth equity — Tech, Digital, SaaS", geo:"USA / Global", geoTags:["Global"], website:"https://www.generalatlantic.com",color:"#0369a1",confirmed2026:false },
+  { fund:"Hard2Beat", size:"€20M", sizeN:20, reps:[{name:"Maciej Zawadzinski",title:"General Partner"}], stages:["Pre-seed","Seed"], focus:"Gaming, Tech, B2B", geo:"Poland / CEE", geoTags:["Poland","CEE"], website:"https://hard2beat.vc",color:"#b45309",confirmed2026:true },
+  { fund:"Impact Ventures", size:"€50M+", sizeN:50, reps:[{name:"Elemer Eszter",title:"Managing Partner"}], stages:["Seed","Series A"], focus:"Tech, Impact, B2B", geo:"Hungary / CEE", geoTags:["CEE"], website:"https://impactventures.hu/en",color:"#059669",confirmed2026:false },
+  { fund:"Isomer Capital", size:"$200M+", sizeN:200, reps:[{name:"Chris Wade",title:"Co-founder & Partner"}], stages:["Series A","Series B"], focus:"Fund of Funds — European VC", geo:"Europe", geoTags:["Western Europe","Global"], website:"https://isomercapital.com",color:"#0891b2",confirmed2026:true },
+  { fund:"IVP", size:"$5B+", sizeN:5000, reps:[{name:"James Black",title:"Partner"}], stages:["Series B","Growth"], focus:"Growth stage tech, IPO-ready", geo:"USA / Global", geoTags:["Global"], website:"https://www.ivp.com",color:"#1e40af",confirmed2026:false },
+  { fund:"J&T Ventures", size:"€100M+", sizeN:100, reps:[{name:"Adam Kocik",title:"Managing Partner"},{name:"David Polach",title:"Partner"}], stages:["Seed","Series A","Series B"], focus:"Tech, Digital, Fintech", geo:"Czech Republic", geoTags:["CEE"], website:"https://www.jtventures.cz",color:"#0369a1",confirmed2026:true },
+  { fund:"Karma Ventures", size:"€60M", sizeN:60, reps:[{name:"Kristjan Laanemaa",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B SaaS, Deep Tech", geo:"Estonia / Baltics", geoTags:["Baltics","CEE"], website:"https://www.karma.vc",color:"#0891b2",confirmed2026:false },
+  { fund:"Keen Venture Partners", size:"€200M+", sizeN:200, reps:[{name:"Giuseppe Lacerenza",title:"Partner"}], stages:["Series A","Series B"], focus:"Fintech, Insurtech, Digital", geo:"Netherlands / Europe", geoTags:["Western Europe","CEE"], website:"https://www.keenventurepartners.com",color:"#7c3aed",confirmed2026:false },
+  { fund:"Kibo Ventures", size:"€150M", sizeN:150, reps:[{name:"Javier Torremocha",title:"General Partner"},{name:"Jordi Vidal",title:"Partner"}], stages:["Seed","Series A","Series B"], focus:"SaaS, Fintech, Digital", geo:"Spain / Southern Europe", geoTags:["Western Europe"], website:"https://www.kiboventures.com",color:"#ea580c",confirmed2026:true },
+  { fund:"Lead Ventures", size:"€30M+", sizeN:30, reps:[{name:"Ádám Csuhai",title:"Partner"}], stages:["Seed","Series A"], focus:"Tech, SaaS, B2B", geo:"Hungary / CEE", geoTags:["CEE"], website:"https://leadventures.eu",color:"#7c3aed",confirmed2026:true },
+  { fund:"Level2 Ventures", size:"€30M", sizeN:30, reps:[{name:"Adam Rudowski",title:"Managing Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B", geo:"Poland", geoTags:["Poland","CEE"], website:"https://level2.vc",color:"#059669",confirmed2026:false },
+  { fund:"Lightrock", size:"$1B+", sizeN:1000, reps:[{name:"Sophie Neuber",title:"Investment Manager"}], stages:["Series A","Series B","Growth"], focus:"Impact, Tech for Good", geo:"Global", geoTags:["Western Europe","Global"], website:"https://www.lightrock.com",color:"#059669",confirmed2026:false },
+  { fund:"Market One Capital", size:"€60M+", sizeN:60, reps:[{name:"Marcin Kurek",title:"General Partner"}], stages:["Seed","Series A"], focus:"B2B SaaS, Marketplaces, Network Effects", geo:"Poland / Global", geoTags:["Poland","CEE","Global"], website:"https://www.moc.vc",color:"#7c3aed",confirmed2026:false },
+  { fund:"Molten Ventures", size:"£1.9B", sizeN:1900, reps:[{name:"Bakhrom Ibragimov",title:"Partner"},{name:"Ozan Sonmez",title:"Partner"}], stages:["Series A","Series B","Growth"], focus:"SaaS, Fintech, Tech", geo:"Europe / Global", geoTags:["Western Europe","Global"], website:"https://www.moltenventures.com",color:"#dc2626",confirmed2026:true },
+  { fund:"Mouro Capital", size:"$400M", sizeN:400, reps:[{name:"Manuel Silva Martinez",title:"General Partner"}], stages:["Series A","Series B"], focus:"Fintech, Financial Services", geo:"Global", geoTags:["Western Europe","Global"], website:"https://www.mourocapital.com",color:"#0369a1",confirmed2026:true },
+  { fund:"Movens Capital", size:"€30M+", sizeN:30, reps:[{name:"Radoslaw Rejman",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B, Fintech, Tech", geo:"Poland / CEE", geoTags:["Poland","CEE"], website:"https://movenscapital.com",color:"#0369a1",confirmed2026:true },
+  { fund:"NATO Innovation Fund", size:"€1B", sizeN:1000, reps:[{name:"Patrick Schneider-Sikorsky",title:"Partner"}], stages:["Seed","Series A","Series B"], focus:"Dual-Use, Defense Tech, Deep Tech", geo:"Europe / NATO", geoTags:["Western Europe","CEE","Global"], website:"https://www.nif.fund",color:"#1d4ed8",confirmed2026:false },
+  { fund:"Nordic Secondary Fund", size:"€300M+", sizeN:300, reps:[{name:"Peter Sandberg",title:"Founding Partner & MD"}], stages:["Growth"], focus:"Secondaries — European VC/PE", geo:"Nordics / Europe", geoTags:["Western Europe","Global"], website:"https://www.n2f.vc",color:"#0369a1",confirmed2026:false },
+  { fund:"OpenOcean", size:"€155M", sizeN:155, reps:[{name:"Tony Nysten",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B, AI, Data, Deep Tech", geo:"Finland / Nordics", geoTags:["Western Europe","Global"], website:"https://www.openocean.vc",color:"#0f766e",confirmed2026:false },
+  { fund:"Orbit Capital", size:"€100M", sizeN:100, reps:[{name:"Wiktor Namysl",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, B2B", geo:"Poland", geoTags:["Poland","CEE"], website:"https://orbitcapital.com",color:"#7c3aed",confirmed2026:true },
+  { fund:"Orlen VC", size:"€100M", sizeN:100, reps:[{name:"Konrad Biniewicz",title:"Investment Director"}], stages:["Seed","Series A"], focus:"Energy, Cleantech, Industrial Tech (CVC)", geo:"Poland", geoTags:["Poland","CEE"], website:"https://vc.orlen.pl/en/about-us",color:"#dc2626",confirmed2026:false },
+  { fund:"OTB Ventures", size:"$185M", sizeN:185, reps:[{name:"Marcin Hejka",title:"General Partner"},{name:"Adam Niewinski",title:"General Partner"}], stages:["Series A","Series B"], focus:"Deep Tech, Space, Cyber, AI Infra", geo:"CEE / Global", geoTags:["CEE","Global"], website:"https://otb.vc",color:"#2563eb",confirmed2026:true },
+  { fund:"OXO Ventures", size:"€50M", sizeN:50, reps:[{name:"Richard Illes",title:"Investment Director"}], stages:["Seed","Series A"], focus:"Tech, B2B", geo:"CEE", geoTags:["CEE"], website:"https://oxoventures.eu",color:"#0891b2",confirmed2026:false },
+  { fund:"PFR Ventures", size:"PLN 2.5B", sizeN:600, reps:[{name:"Karolina Mitraszewska",title:"CEO"},{name:"Rozalia Urbanek",title:"CIO"},{name:"Bartlomiej Samsonowicz",title:"Investment Director"}], stages:["Seed","Series A","Series B"], focus:"Fund of Funds — Polish VC ecosystem", geo:"Poland", geoTags:["Poland","CEE"], website:"https://pfrventures.pl",color:"#dc2626",confirmed2026:true },
+  { fund:"Point Nine Capital", size:"€200M+", sizeN:200, reps:[{name:"Pawel Chudzinski",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B SaaS, Marketplaces", geo:"Berlin / Global", geoTags:["Western Europe","Global"], website:"https://www.pointnine.com",color:"#0891b2",confirmed2026:false },
+  { fund:"Portfolion", size:"€100M+", sizeN:100, reps:[{name:"Zsolt Mihaly",title:"Partner"}], stages:["Seed","Series A","Series B"], focus:"Fintech, SaaS (OTP Bank CVC)", geo:"Hungary / CEE", geoTags:["CEE"], website:"https://www.portfolion.hu",color:"#1d4ed8",confirmed2026:false },
+  { fund:"Prequel VC", size:"€10M", sizeN:10, reps:[{name:"Mathias Bosse",title:"General Partner"}], stages:["Pre-seed","Seed"], focus:"Supply Chain, Sustainability, B2B", geo:"Germany / Europe", geoTags:["Western Europe"], website:"https://www.prequelvc.com",color:"#0891b2",confirmed2026:false },
+  { fund:"Purple Ventures", size:"€40M", sizeN:40, reps:[{name:"Jan Stanek",title:"General Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, B2B", geo:"Poland", geoTags:["Poland","CEE"], website:"https://www.purple-ventures.com",color:"#7c3aed",confirmed2026:false },
+  { fund:"QNBeyond Ventures", size:"$15M", sizeN:15, reps:[{name:"Ozge Oz",title:"Partner"}], stages:["Seed","Series A"], focus:"Fintech, Tech, Digital", geo:"Turkey / Global", geoTags:["CEE","Global"], website:"https://www.qnbeyondventures.com",color:"#1d4ed8",confirmed2026:false },
+  { fund:"Radix Ventures", size:"€50M+", sizeN:50, reps:[{name:"Wojciech Ratymirski",title:"General Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B SaaS", geo:"Poland / CEE", geoTags:["Poland","CEE"], website:"https://www.radix-vc.com",color:"#0891b2",confirmed2026:false },
+  { fund:"Rockaway Ventures", size:"€80M+", sizeN:80, reps:[{name:"Petr Šmid",title:"Partner"}], stages:["Seed","Series A","Series B"], focus:"E-commerce, Tech, Digital", geo:"Czech Republic / CEE", geoTags:["CEE"], website:"https://rockawayventures.com",color:"#b45309",confirmed2026:true },
+  { fund:"Roosh Ventures", size:"$50M+", sizeN:50, reps:[{name:"Kyle Ukho",title:"General Partner"},{name:"Adam Hashchyshyn",title:"Principal"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, B2B", geo:"Ukraine / CEE", geoTags:["CEE"], website:"https://roosh.vc",color:"#1d4ed8",confirmed2026:true },
+  { fund:"Senovo", size:"€100M+", sizeN:100, reps:[{name:"Markus Grundman",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B SaaS, Enterprise Software", geo:"Germany / Europe", geoTags:["Western Europe","CEE"], website:"https://senovo.vc",color:"#059669",confirmed2026:false },
+  { fund:"Siena Venture Partners", size:"€50M", sizeN:50, reps:[{name:"Rando Rannus",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B, Deep Tech", geo:"Estonia / Baltics", geoTags:["Baltics","CEE"], website:"https://siena2ndary.com",color:"#059669",confirmed2026:true },
+  { fund:"Silicon Gardens", size:"€33M+", sizeN:33, reps:[{name:"Vuk Lau",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, Deep Tech", geo:"Slovenia / SEE", geoTags:["CEE"], website:"https://www.silicongardens.com",color:"#059669",confirmed2026:false },
+  { fund:"SMOK Ventures", size:"€30M+", sizeN:30, reps:[{name:"Diana Koziarska",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"AI, B2B, Deep Tech", geo:"Poland / CEE", geoTags:["Poland","CEE"], website:"https://www.smok.vc",color:"#9333ea",confirmed2026:true },
+  { fund:"South Central Ventures", size:"€50M+", sizeN:50, reps:[{name:"Eli Zhabevska",title:"Principal"}], stages:["Seed","Series A"], focus:"Tech, AI, Digital", geo:"Balkans (Serbia, N.Macedonia)", geoTags:["CEE"], website:"https://sc-ventures.com",color:"#dc2626",confirmed2026:false },
+  { fund:"Sparking Capital", size:"€30M", sizeN:30, reps:[{name:"Vlad Panait",title:"Managing Partner"}], stages:["Pre-seed","Seed"], focus:"Tech, AI, Digital", geo:"Romania / CEE", geoTags:["CEE"], website:"https://www.sparkingcapital.com",color:"#ea580c",confirmed2026:false },
+  { fund:"Specialist VC", size:"€50M", sizeN:50, reps:[{name:"Riivo Anton",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"Deep Tech, B2B", geo:"Estonia / Baltics", geoTags:["Baltics","CEE"], website:"https://specialist.vc",color:"#0891b2",confirmed2026:false },
+  { fund:"Sunfish Partners", size:"€15M", sizeN:15, reps:[{name:"Marcus Erken",title:"Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B SaaS", geo:"Germany / Europe", geoTags:["Western Europe","CEE"], website:"https://www.sunfish-partners.com",color:"#059669",confirmed2026:true },
+  { fund:"Tilia Impact Ventures", size:"€100M+", sizeN:100, reps:[{name:"Pavel Petrek",title:"Partner"}], stages:["Seed","Series A"], focus:"Impact, Sustainability, Climate", geo:"Czech / Europe", geoTags:["CEE","Western Europe"], website:"https://tilia.vc",color:"#059669",confirmed2026:false },
+  { fund:"Truffle Capital", size:"€750M+", sizeN:750, reps:[{name:"Bozena Adamczyk",title:"Partner"}], stages:["Series A","Series B","Growth"], focus:"Deep Tech, Biotech, Cyber, Fintech", geo:"France / Europe", geoTags:["Western Europe"], website:"https://www.truffle.com",color:"#1e40af",confirmed2026:true },
+  { fund:"Vastpoint", size:"€18M", sizeN:18, reps:[{name:"Aleksandra Pedraszewska",title:"Partner"}], stages:["Pre-seed","Seed"], focus:"AI, Deep Tech, B2B SaaS", geo:"Poland / CEE", geoTags:["Poland","CEE"], website:"https://vastpoint.vc",color:"#2a7d2e",confirmed2026:true },
+  { fund:"Venture to Future Fund", size:"€55M", sizeN:55, reps:[{name:"Miriama Hanout",title:"Board Member"}], stages:["Seed","Series A"], focus:"Tech, Innovation", geo:"Slovakia / CEE", geoTags:["CEE"], website:"https://vff.sk/en",color:"#0369a1",confirmed2026:false },
+  { fund:"EIF", size:"€45B+", sizeN:45000, reps:[{name:"Michal Kosina",title:"Senior Mandate Manager"}], stages:["Seed","Series A","Series B","Growth"], focus:"LP / Institutional — European VC", geo:"Europe", geoTags:["CEE","Western Europe"], website:"https://www.eif.org",color:"#1d4ed8",confirmed2026:true },
+  { fund:"212", size:"€86M", sizeN:86, reps:[{name:"Numan Numan",title:"General Partner"}], stages:["Seed","Series A"], focus:"Tech, AI, Digital", geo:"Turkey / CEE", geoTags:["CEE","Global"], website:"https://212.vc",color:"#0369a1", confirmed2026:false },
+  { fund:"Acurio", size:"€150M", sizeN:150, reps:[{name:"Kiril Dimov",title:"Principal"}], stages:["Seed","Series A"], focus:"Tech, B2B, Secondaries", geo:"Bulgaria / CEE", geoTags:["CEE"], website:"https://www.acurio.vc",color:"#7c3aed", confirmed2026:true },
+  { fund:"Begin Capital", size:"$120M", sizeN:120, reps:[{name:"Saagar Bhavsar",title:"Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B, AI", geo:"Europe / Global", geoTags:["Western Europe","CEE","Global"], website:"https://www.begincl.com",color:"#0891b2", confirmed2026:false },
+  { fund:"Presto Ventures", size:"€150M", sizeN:150, reps:[{name:"Roman Novacek",title:"Partner"}], stages:["Seed","Series A"], focus:"B2B SaaS, Tech", geo:"Czech / Slovak / CEE", geoTags:["CEE"], website:"https://www.prestoventures.com",color:"#0f766e", confirmed2026:false },
+  { fund:"Vesna Capital", size:"$10M", sizeN:10, reps:[{name:"Petro Sovyak-Krukovskyy",title:"Investment Director"}], stages:["Seed","Series A"], focus:"Tech, AI, B2B", geo:"Ukraine / CEE", geoTags:["CEE"], website:"https://www.vesna.capital/eng/",color:"#2563eb", confirmed2026:true },
+  { fund:"Yttrium", size:"€400M+", sizeN:400, reps:[{name:"Tim Kindt",title:"Partner"}], stages:["Seed","Series A"], focus:"Tech, B2B, AI", geo:"Europe", geoTags:["Western Europe","CEE"], website:"https://yttrium.com",color:"#6b7280", confirmed2026:false },
+  { fund:"AIP Seed", website:"https://www.aipseed.vc", size:"€25M", sizeN:25, reps:[{name:"Dariusz Zuk",title:"CEO"}], stages:["Pre-seed","Seed"], focus:"AI, Tech, B2B — Polish founders globally", geo:"Poland / Global", geoTags:["Poland","CEE","Global"], color:"#2563eb", confirmed2026:false },
+  { fund:"N1 Fund", website:"https://n1.rocks", size:"$60M", sizeN:60, reps:[{name:"Kseniia Ocheredko",title:"Investment Manager"}], stages:["Pre-seed","Seed"], focus:"AI, Healthtech", geo:"Czech Republic / Europe", geoTags:["CEE"], color:"#0891b2", confirmed2026:false },
+];
+
+// Deduplicate by fund name (EIF was duplicated above — keep unique)
+const seen = new Set();
+const fundsUniq = funds.filter(f => { if (seen.has(f.fund)) return false; seen.add(f.fund); return true; });
+
+const stageTagClass = { "Pre-seed":"preseed","Seed":"seed","Series A":"a","Series B":"b","Growth":"growth","Fund of Funds":"fof" };
+
+function getInitials(name) {
+  return name.split(' ').filter(w=>w).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+}
+
+function renderStages(stages) {
+  return stages.map(s => {
+    const cls = stageTagClass[s] || 'a';
+    return `<span class="tag tag-${cls}">${s}</span>`;
+  }).join('');
+}
+
+function renderReps(reps) {
+  return reps.map(r =>
+    `<div class="rep-entry"><div class="rep-name">${r.name}</div><div class="rep-title">${r.title}</div></div>`
+  ).join('');
+}
+
+// Sort state
+let sortKey = 'name';
+let sortDir = 'asc';
+
+const activeFilters = { stage: new Set(), geo: new Set(), confirmed: new Set() };
+
+function toggleFilter(btn) {
+  const type = btn.dataset.filter;
+  const val = btn.dataset.value;
+  if (activeFilters[type].has(val)) { activeFilters[type].delete(val); btn.classList.remove('active'); }
+  else { activeFilters[type].add(val); btn.classList.add('active'); }
+  renderTable();
+}
+
+function clearFilters() {
+  activeFilters.stage.clear(); activeFilters.geo.clear(); activeFilters.confirmed.clear();
+  document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
+  document.getElementById('searchInput').value = '';
+  renderTable();
+}
+
+function applyFilters() { renderTable(); }
+
+function sortBy(key) {
+  if (sortKey === key) { sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
+  else { sortKey = key; sortDir = 'asc'; }
+  updateSortHeaders();
+  renderTable();
+}
+
+function updateSortHeaders() {
+  ['name','size'].forEach(k => {
+    const th = document.getElementById('th-' + k);
+    const si = document.getElementById('si-' + k);
+    th.classList.remove('sorted-asc','sorted-desc');
+    if (sortKey === k) {
+      th.classList.add(sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+    }
+  });
+}
+
+function getFilteredSorted() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+
+  let result = fundsUniq.filter(f => {
+    const repText = f.reps.map(r => r.name.toLowerCase() + ' ' + r.title.toLowerCase()).join(' ');
+    const matchQ = !q ||
+      f.fund.toLowerCase().includes(q) ||
+      repText.includes(q) ||
+      f.focus.toLowerCase().includes(q);
+    const matchStage = activeFilters.stage.size === 0 || f.stages.some(s => activeFilters.stage.has(s));
+    const matchGeo   = activeFilters.geo.size   === 0 || f.geoTags.some(g => activeFilters.geo.has(g));
+    const matchConf  = activeFilters.confirmed.size === 0 || (activeFilters.confirmed.has('yes') && f.confirmed2026);
+    return matchQ && matchStage && matchGeo && matchConf;
+  });
+
+  result.sort((a, b) => {
+    if (sortKey === 'name') {
+      const va = a.fund.toLowerCase(), vb = b.fund.toLowerCase();
+      return sortDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+    } else {
+      // size: unknowns always last
+      const va = a.sizeN, vb = b.sizeN;
+      if (va === -1 && vb === -1) return a.fund.localeCompare(b.fund);
+      if (va === -1) return 1;
+      if (vb === -1) return -1;
+      return sortDir === 'asc' ? va - vb : vb - va;
+    }
+  });
+  return result;
+}
+
+function renderTable() {
+  const data = getFilteredSorted();
+  const tbody = document.getElementById('tableBody');
+
+  tbody.innerHTML = data.map(f => `
+    <tr>
+      <td>
+        <div class="cell-fund">
+          <div class="fund-avatar" style="background:${f.color}">${getInitials(f.fund)}</div>
+          <div class="fund-name">${f.website ? `<a href="${f.website}" target="_blank" rel="noopener" class="fund-link">${f.fund}</a>` : f.fund}</div>
+        </div>
+      </td>
+      <td>
+        ${f.size !== '-'
+          ? `<span class="cell-size">${f.size}</span>`
+          : `<span class="cell-size no-size">—</span>`}
+      </td>
+      <td class="cell-reps">${renderReps(f.reps)}</td>
+      <td><div class="tags">${renderStages(f.stages)}</div></td>
+      <td class="cell-focus">${f.focus}</td>
+      <td class="cell-geo">${f.geo}</td>
+      <td>${f.confirmed2026
+        ? '<span class="badge-confirmed badge-yes">✓ Yes</span>'
+        : '<span class="badge-confirmed badge-no">—</span>'}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('visibleCount').textContent = data.length;
+  const empty = data.length === 0;
+  document.getElementById('noResults').classList.toggle('hidden', !empty);
+  document.getElementById('mainTable').style.display = empty ? 'none' : '';
+}
+
+updateSortHeaders();
+renderTable();
+</script>
+</body>
+</html>
