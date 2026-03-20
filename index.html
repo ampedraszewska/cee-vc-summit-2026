@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CEE VC Summit 2026 — Investor Directory</title>
+<title>European VC Directory — Curated by Vastpoint</title>
 
 <!-- SEO -->
-<meta name="description" content="Directory of European VC funds attending CEE VC Summit 2026, Warsaw, 24–25 March. Curated by Vastpoint.">
+<meta name="description" content="Directory of European VC funds active in CEE. Curated by Vastpoint.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="CEE VC Summit 2026 — Investor Directory">
-<meta property="og:description" content="Directory of European VC funds attending CEE VC Summit 2026, Warsaw, 24–25 March. Curated by Vastpoint.">
+<meta property="og:title" content="European VC Directory — Curated by Vastpoint">
+<meta property="og:description" content="Directory of European VC funds active in CEE. Curated by Vastpoint.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://vastpoint.vc/favicon.png">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CEE VC Summit 2026 — Investor Directory">
-<meta name="twitter:description" content="Directory of European VC funds attending CEE VC Summit 2026, Warsaw, 24–25 March. Curated by Vastpoint.">
+<meta name="twitter:title" content="European VC Directory — Curated by Vastpoint">
+<meta name="twitter:description" content="Directory of European VC funds active in CEE. Curated by Vastpoint.">
 <meta name="twitter:image" content="https://vastpoint.vc/favicon.png">
 
 <!-- Favicon -->
@@ -300,7 +300,7 @@
 <div class="header">
   <div class="header-inner">
     <div class="header-left">
-      <span class="event-tag">CEE VC Summit 2026</span>
+      <span class="event-tag">European VC</span>
       <span class="title">Investor Directory</span>
       <div class="header-sep"></div>
       <div class="curated-by">
@@ -313,7 +313,7 @@
       </div>
     </div>
     <div class="header-right">
-      <span class="count-badge"><span id="visibleCount">0</span> funds · Warsaw, 24–25 March 2026</span>
+      <span class="count-badge"><span id="visibleCount">0</span> funds · CEE &amp; Europe</span>
     </div>
   </div>
 </div>
@@ -343,11 +343,6 @@
       <button class="filter-btn" data-filter="geo" data-value="Global" onclick="toggleFilter(this)">🌍 Global</button>
     </div>
     <div class="divider"></div>
-    <div class="filter-group">
-      <span class="filter-label">Status</span>
-      <button class="filter-btn" data-filter="confirmed" data-value="yes" onclick="toggleFilter(this)">✓ Confirmed 2026</button>
-    </div>
-    <div class="divider"></div>
     <button class="clear-btn" onclick="clearFilters()">✕ Clear</button>
   </div>
 </div>
@@ -362,7 +357,6 @@
         <th>Stage</th>
         <th>Focus</th>
         <th>Geography</th>
-        <th>Confirmed 2026?</th>
       </tr>
     </thead>
     <tbody id="tableBody"></tbody>
@@ -371,7 +365,7 @@
 </div>
 
 <div class="page-footer">
-  Data sourced from <strong>CEE VC Summit 2026</strong> by Vestbee &nbsp;·&nbsp; Curated by <a href="https://vastpoint.vc" target="_blank">Vastpoint</a> &nbsp;·&nbsp; Updated March 2026
+  Information gathered with Claude Code based on publicly available data sources by <a href="https://vastpoint.vc" target="_blank">Vastpoint</a>. We cannot guarantee that all information is correct and up to date. To request edits, email <a href="mailto:a@vastpoint.vc">a@vastpoint.vc</a>
 </div>
 
 <script>
@@ -582,9 +576,6 @@ function renderTable() {
       <td><div class="tags">${renderStages(f.stages)}</div></td>
       <td class="cell-focus">${f.focus}</td>
       <td class="cell-geo">${f.geo}</td>
-      <td>${f.confirmed2026
-        ? '<span class="badge-confirmed badge-yes">✓ Yes</span>'
-        : '<span class="badge-confirmed badge-no">—</span>'}</td>
     </tr>
   `).join('');
 
